@@ -11,20 +11,20 @@
 </head>
 <body>
     <div class="top">
-        <div class="navbar-container">
+        <!-- <div class="navbar-container">
             <div class="navbar">
             </div>
-        </div>
+        </div> -->
         <section class="img-container">
             <div class="background">
                 <div class="champion-img">
-                    <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" alt="">
+                    <img id="background" src="" alt="">
                 </div>
             </div>
     
             <div class="img-center">
                 <div class="img-center-container">
-                    <img src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" alt="">
+                    <img id="frontground" src="" alt="">
                 </div>
                 <div class="description">
                     <div class="description-container">
@@ -36,12 +36,12 @@
                             <h1>
                                 <span class="title">
                                     <div class="champ-title">
-                                        <span>La Espada Darkin</span>
+                                        <span id="title"></span>
                                     </div>
                                 </span>
                                 <strong class="name">
                                     <div class="champ-name">
-                                        <span>Aatrox</span>
+                                        <span id="name"></span>
                                     </div>
                                 </strong>
                             </h1>
@@ -53,32 +53,47 @@
                             <ul class="information-content">
                                 <li>
                                     <div class="content">
-                                        <div></div>
+                                        <div><img id="img-rol" src="" alt=""></div>
                                     </div>
                                     <div class="rol">Rol</div>
-                                    <div class="rol">Luchador</div>
+                                    <div id="rol" class="rol"></div>
                                 </li>
                                 <li>
                                     <div>
                                         <span>
-                                            <span>
+                                            <span id="dificulty">
                                                 <span class="dificulty"></span>
                                                 <span class="dificulty"></span>
-                                                <span class="other dificulty"></span>
+                                                <span class="dificulty"></span>
                                             </span>
                                         </span>
                                     </div>
                                     <div class="rol">Dificultad</div>
-                                    <div class="rol">Moderada</div>
+                                    <div id="dificultad" class="rol"></div>
                                 </li>
                             </ul>
                         </div>
                         <div></div>
-                        <div></div>
+                        <div>
+                            <p id="parrafo">
+                            Aatrox y sus hermanos, que alguna vez fueron respetados defensores de Shurima contra el Vacío, se convirtieron en una amenaza aún mayor para Runaterra y los derrotaron con hechicería mortal usada con astucia. Pero, después de siglos de encarcelamiento...
+                            <!-- -->
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="button-container">
+                <a href="../HTML/index.html" class="back-button">
+                <i class="fa-solid fa-arrow-left-long"></i>
+                <p>Campeones</p>
+                </a>
+            </div>
+            
         </section>
-    </div>    
+    </div>
+
+    <script src="../JS/championInformation.js"></script>
 </body>
 </html>

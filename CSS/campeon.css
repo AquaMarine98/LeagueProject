@@ -70,27 +70,12 @@ img {
   border-style: none;
 }
 
-/* .navbar-container {
-  position: fixed;
-  width: 100%;
-  height: 80px;
-
-  top: 0px;
-  left: 0px;
-
-  z-index: 10000;
+.block {
+  display: block;
 }
-.navbar {
-  display: flex;
-  flex-direction: row;
-
-  align-items: center;
-
-  width: 100%;
-  height: 80px;
-
-  background-color: rgb(44, 44, 44);
-} */
+.inline {
+  display: inline-block;
+}
 
 .img-container {
   position: relative;
@@ -367,7 +352,7 @@ img {
   
   letter-spacing: 0.1em;
 }
-.champion div:first-child {
+.champion > div:first-child {
   position: relative;
   z-index: 1;
   text-align: center;
@@ -383,15 +368,21 @@ img {
   font-style: italic;
 }
 .champ-title {
-  display: inline-block;
+  animation-duration: 1.5s;
+  animation-delay: .5s;
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  animation-name: toTheLeft;
+  clip-path: polygon(0% 0%, 0% 200%, 200% 0%);
 }
 .champ-title span {
   font-size: 1.5rem;
 
   font-weight: 500;
 
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
 }
+
 
 .name {
   text-transform: uppercase;
@@ -400,12 +391,16 @@ img {
   font-weight: bold;
 }
 .champ-name {
-  animation-duration: 2000ms;
-  animation-delay: 500ms;
+
+  animation-duration:1.5s;
+  animation-delay: .5s;
   animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 
-  animation-name: iueStm;
+  animation-name: toTheRight;
   clip-path: polygon(0% 0%, 200% 0%, 0% 200%);
+}
+.unshown {
+  clip-path: polygon(0% 0%, 0% 0%, 0% 0%);
 }
 .champ-name span {
   display: block;
@@ -420,9 +415,13 @@ img {
 
   letter-spacing: 1rem;
 }
-@keyframes iueStm {
+@keyframes toTheRight {
   0% { clip-path: polygon(0% 0%, 0% 0%, 0% 0%);}
   100% { clip-path: polygon(0% 0%, 200% 0%, 0% 200%);}
+}
+@keyframes toTheLeft {
+  0% { clip-path: polygon(100% 100%, 0% 200%, 200% 0%);}
+  100% { clip-path: polygon(0% 0%, 0% 200%, 200% 0%);}
 }
 
 /* Information */

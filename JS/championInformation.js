@@ -3,6 +3,8 @@ let background = document.getElementById('background');
 let frontground = document.getElementById('frontground');
 
 // Name and title
+let unshownName = document.getElementById('CHAMP_NAME');
+let unshownTitle = document.getElementById('CHAMP_TITLE');
 let champName = document.getElementById('name');
 let champTitle = document.getElementById('title');
 
@@ -19,6 +21,13 @@ let boxDificulty = document.getElementById('dificulty');
 let champDificulty = boxDificulty.querySelectorAll('span');
 let dificultad = document.getElementById('dificultad');
 
+// Canvas
+let canvas = document.getElementById('CANVAS');
+let canvasContext = canvas.getContext('2d');
+
+// Information container
+let infoCont = document.getElementById('INFO_CONTAINER');
+
 let champId;
 
 window.onload = () => {
@@ -27,6 +36,16 @@ window.onload = () => {
     let urlRegex = /(?:\?id\=)(\w+)(?:$|\&)/;
     let champRegex = urlRegex.exec(actualUrl);
     champId = champRegex[1];
+
+    // Wait until the name container get his width
+    setTimeout(() => {
+        makeCanvas();
+    }, 500);
+
+    setTimeout(() => {
+        unshownName.classList.remove('unshown');
+        unshownTitle.classList.remove('unshown');
+    }, 1500);
 
     background.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg`;
     frontground.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg`;
@@ -54,6 +73,7 @@ function setChampInfo(champ) {
     // Make the blurb go to full lore
     moreButton.onclick = () => {
         champLore.textContent = champ.data[champId].lore;
+        canvas.style.height = `${infoCont.clientHeight}px`;
     }
 
     // Change the span with the difficulty
@@ -62,38 +82,54 @@ function setChampInfo(champ) {
 }
 
 function changeRolImg() {
-    if(champRol.textContent == 'Fighter') {
+    if (champRol.textContent == 'Fighter') {
         imgRol.src = '../Roles/Fighter_icon.png';
     }
-    else if(champRol.textContent == 'Mage') {
+    else if (champRol.textContent == 'Mage') {
         imgRol.src = '../Roles/Mage_icon.png';
     }
-    else if(champRol.textContent == 'Tank') {
+    else if (champRol.textContent == 'Tank') {
         imgRol.src = '../Roles/Tank_icon.png';
     }
-    else if(champRol.textContent == 'Marksman') {
+    else if (champRol.textContent == 'Marksman') {
         imgRol.src = '../Roles/Marksman_icon.png';
     }
-    else if(champRol.textContent == 'Support') {
+    else if (champRol.textContent == 'Support') {
         imgRol.src = '../Roles/Support_icon.png';
     }
-    else if(champRol.textContent == 'Assassin') {
+    else if (champRol.textContent == 'Assassin') {
         imgRol.src = '../Roles/Assassin_icon.png';
     }
 }
 
 function changeDificulty(difficulty) {
-    if(difficulty <= 3) {
+    if (difficulty <= 3) {
         dificultad.textContent = 'Baja';
         champDificulty[1].classList.add('other');
         champDificulty[2].classList.add('other');
     }
-    else if(difficulty >= 4 && difficulty <= 7) {
+    else if (difficulty >= 4 && difficulty <= 7) {
         dificultad.textContent = 'Moderado';
         champDificulty[2].classList.add('other');
     }
     else {
         dificultad.textContent = 'Alta';
     }
-    console.log(difficulty)
+}
+
+function makeCanvas() {
+    let vertices = [];
+    vertices.push({ x: ((1097 / 2) + (champName.clientWidth / 2)), y: 0 });
+    vertices.push({ x: 1097, y: 0 });
+    vertices.push({ x: 1097, y: 329 });
+    vertices.push({ x: 0, y: 329 });
+    vertices.push({ x: 0, y: 0 });
+    vertices.push({ x: (1097 / 2) - (champName.clientWidth / 2), y: 0 });
+
+    canvasContext.strokeStyle = 'Gray';
+
+    canvasContext.beginPath();
+    canvasContext.moveTo(vertices[0].x, vertices[0].y);
+    canvasContext.lineTo(vertices[1].x, vertices[1].y);
+    canvasContext.stroke();
 }

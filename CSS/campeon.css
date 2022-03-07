@@ -334,10 +334,8 @@ img {
   pointer-events: none;
 }
 .description-canvas {
-  width: 1097px;
-  height: 329.891px;
-  left: -2px;
-  top: -2px;
+
+  padding: 0px;
 
   position: absolute;
   display: block;
@@ -580,6 +578,7 @@ img {
   height: 100%;
 
   padding-right: 0px;
+  margin: 0px -1px;
 
   opacity: 1;
 
@@ -593,17 +592,95 @@ img {
   opacity: 0.2;
 }
 
+/* Skins */
+
+.skins-container {
+  box-sizing: border-box;
+
+  padding: 80px 3.75rem 0px;
+  margin: 0px auto;
+
+  max-width: 1335px;
+}
+.skin-img {
+  object-fit: cover;
+  object-position: center 20%;
+
+  position: relative;
+  left: 0px;
+  top: 0px;
+
+  width: 100%;
+  height: 100%;
+}
+.skins-container > div:first-child > h1:first-child {
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+
+  letter-spacing: 5px;
+
+  padding-bottom: 40px;
+
+  color: white;
+
+  font-size: 80px;
+  font-style: italic;
+}
+
+
 
 @media (max-width: 1024px) {
   .img-container {
     padding: 30px 0px 75px;
   }
-  .img-center {
+  .img-center, .skins-container{
     padding: 0px 0.65rem;
   }
 }
 @media (max-width: 425px) {
+  .champion {
+    top: -3.5rem;
+  }
+
   .img-container {
     padding: 10px 0px 75px;
+  }
+
+  .description {
+    margin: 75px 0px 0px;
+  }
+
+  #title {
+    font-size: 15px;
+  }
+  #name, .skins-container > div:first-child > h1:first-child {
+    font-size: 50px;
+    letter-spacing: 2px;
+  }
+
+  .information {
+    flex-direction: column;
+    align-items: center;
+  }
+  .information > div:first-child {
+    margin-top: 40px;
+  }
+  .information > div:nth-child(2) {
+    width: 80%;
+    height: 1px;
+    margin: 1.5rem 0px;
+  }
+  .information > div:first-child, .information > div:nth-child(3) {
+    padding: 0.5rem;
+
+    width: 100%;
+  }
+
+  #CANVAS {
+    left: 0px;
+    top: 0px;
+
+    padding: 0px;
   }
 }

@@ -25,6 +25,10 @@ let dificultad = document.getElementById('dificultad');
 let canvas = document.getElementById('CANVAS');
 let canvasContext = canvas.getContext('2d');
 
+let descriptionContainer = document.getElementById('HEIGHT_CANVAS');
+let canvasHeight;
+let canvasWidth;
+
 // Information container
 let infoCont = document.getElementById('INFO_CONTAINER');
 
@@ -39,6 +43,17 @@ window.onload = () => {
 
     // Wait until the name container get his width
     setTimeout(() => {
+        canvasHeight = (descriptionContainer.clientHeight + 10);
+        canvasWidth = (descriptionContainer.clientWidth + 10);
+
+        canvas.style.height = `${canvasHeight}px`;
+        canvas.style.width = `${canvasWidth}px`;
+
+        canvas.height = canvasHeight;
+        canvas.width = canvasWidth;
+
+        console.log(canvas.style.height, canvas.style.width)
+
         makeCanvas();
     }, 500);
 
@@ -119,17 +134,23 @@ function changeDificulty(difficulty) {
 
 function makeCanvas() {
     let vertices = [];
-    vertices.push({ x: ((1097 / 2) + (champName.clientWidth / 2)), y: 0 });
-    vertices.push({ x: 1097, y: 0 });
-    vertices.push({ x: 1097, y: 329 });
-    vertices.push({ x: 0, y: 329 });
+    vertices.push({ x: ((descriptionContainer.clientWidth / 2) + (unshownName.clientWidth / 2)), y: 0 });
+    vertices.push({ x: descriptionContainer.clientWidth, y: 0 });
+    vertices.push({ x: descriptionContainer.clientWidth, y: descriptionContainer.clientHeight });
+    vertices.push({ x: 0, y: descriptionContainer.clientHeight });
     vertices.push({ x: 0, y: 0 });
-    vertices.push({ x: (1097 / 2) - (champName.clientWidth / 2), y: 0 });
+    vertices.push({ x: (descriptionContainer.clientWidth / 2) - (unshownName.clientWidth / 2), y: 0 });
+
+    console.log(vertices)
 
     canvasContext.strokeStyle = 'Gray';
 
     canvasContext.beginPath();
     canvasContext.moveTo(vertices[0].x, vertices[0].y);
     canvasContext.lineTo(vertices[1].x, vertices[1].y);
+    canvasContext.lineTo(vertices[2].x, vertices[2].y);
+    canvasContext.lineTo(vertices[3].x, vertices[3].y);
+    canvasContext.lineTo(vertices[4].x, vertices[4].y);
+    canvasContext.lineTo(vertices[5].x, vertices[5].y);
     canvasContext.stroke();
 }

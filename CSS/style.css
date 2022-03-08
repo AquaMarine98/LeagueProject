@@ -114,6 +114,8 @@ span {
   box-sizing: border-box;
 }
 #CHAMPIONS_CONTAINER {
+  opacity: 0;
+
   display: grid;
   justify-content: center;
 

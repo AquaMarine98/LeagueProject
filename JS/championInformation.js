@@ -34,6 +34,33 @@ let infoCont = document.getElementById('INFO_CONTAINER');
 
 let champId;
 
+
+// Get champion information
+function getChampionInfo(champ) {
+    fetch(`http://ddragon.leagueoflegends.com/cdn/12.5.1/data/es_AR/champion/${champ}.json`)
+        .then(result => result.json())
+        .then(data => {
+            console.log(data);
+            setChampInfo(data);
+            getTotalSkins(data);
+        });
+}
+
+$(window).resize(function () {
+    setTimeout(() => {
+        canvasHeight = (descriptionContainer.clientHeight);
+        canvasWidth = (descriptionContainer.clientWidth);
+
+        canvas.style.height = `${canvasHeight}px`;
+        canvas.style.width = `${canvasWidth}px`;
+
+        canvas.height = canvasHeight;
+        canvas.width = canvasWidth;
+
+        makeCanvas();
+    }, 50);
+});
+
 window.onload = () => {
     let actualUrl = window.location.href;
 
@@ -43,16 +70,14 @@ window.onload = () => {
 
     // Wait until the name container get his width
     setTimeout(() => {
-        canvasHeight = (descriptionContainer.clientHeight + 10);
-        canvasWidth = (descriptionContainer.clientWidth + 10);
+        canvasHeight = (descriptionContainer.clientHeight);
+        canvasWidth = (descriptionContainer.clientWidth);
 
         canvas.style.height = `${canvasHeight}px`;
         canvas.style.width = `${canvasWidth}px`;
 
         canvas.height = canvasHeight;
         canvas.width = canvasWidth;
-
-        console.log(canvas.style.height, canvas.style.width)
 
         makeCanvas();
     }, 500);
@@ -65,12 +90,7 @@ window.onload = () => {
     background.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg`;
     frontground.src = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_0.jpg`;
 
-    fetch(`http://ddragon.leagueoflegends.com/cdn/12.5.1/data/es_AR/champion/${champId}.json`)
-        .then(result => result.json())
-        .then(data => {
-            console.log(data);
-            setChampInfo(data);
-        });
+    getChampionInfo(champId);
 }
 
 function setChampInfo(champ) {
@@ -133,15 +153,14 @@ function changeDificulty(difficulty) {
 }
 
 function makeCanvas() {
+    
     let vertices = [];
-    vertices.push({ x: ((descriptionContainer.clientWidth / 2) + (unshownName.clientWidth / 2)), y: 0 });
-    vertices.push({ x: descriptionContainer.clientWidth, y: 0 });
-    vertices.push({ x: descriptionContainer.clientWidth, y: descriptionContainer.clientHeight });
-    vertices.push({ x: 0, y: descriptionContainer.clientHeight });
+    vertices.push({ x: ((canvasWidth / 2) + (unshownName.clientWidth / 2)), y: 0 });
+    vertices.push({ x: canvasWidth, y: 0 });
+    vertices.push({ x: canvasWidth, y: canvasHeight });
+    vertices.push({ x: 0, y: canvasHeight });
     vertices.push({ x: 0, y: 0 });
-    vertices.push({ x: (descriptionContainer.clientWidth / 2) - (unshownName.clientWidth / 2), y: 0 });
-
-    console.log(vertices)
+    vertices.push({ x: (canvasWidth / 2) - (unshownName.clientWidth / 2), y: 0 });
 
     canvasContext.strokeStyle = 'Gray';
 

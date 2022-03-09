@@ -599,14 +599,14 @@ img {
 .skins-container {
   box-sizing: border-box;
 
-  padding: 80px 3rem 0px;
+  padding: 80px 3rem;
   margin: 0px auto;
 
   max-width: 1450px;
 }
 .skin-img-container {
   min-width: 1350px;
-  min-height: 800px;
+  height: 800px;
 }
 .skins-container > div > div {
   position: relative;
@@ -658,6 +658,17 @@ img {
   height: 100%;
 
   border-radius: var(--border-radius-default);
+
+  opacity: 0;
+}
+.skin-img.selected {
+  animation-duration: 1000ms;
+  animation-name: fadeIn;
+  opacity: 1;
+}
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 #SKINS_CONTAINER {
@@ -712,6 +723,13 @@ img {
 
   background-color: rgba(0, 0, 0, .1);
 }
+#SKINS_CONTAINER > li.selected {
+  transform: scale(1.1);
+
+  margin-left: 24px;
+
+  background-color: rgba(0, 0, 0, .1);
+}
 #SKINS_CONTAINER > li img {
   width: 100px;
   height: 100px;
@@ -737,6 +755,9 @@ img {
 
   color: white;
 }
+
+/* Abilities */
+
 
 
 

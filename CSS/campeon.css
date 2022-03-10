@@ -740,6 +740,7 @@ img {
 
   border-radius: var(--border-radius-default) 0px 0px var(--border-radius-default);
 }
+
 #SKINS_CONTAINER > li > h1 {
   width: 100%;
 
@@ -757,7 +758,132 @@ img {
 }
 
 /* Abilities */
+#ABILITIES_CONTAINER {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  width: 80%;
+
+  margin: 10rem auto 0px;
+}
+#ABILITIES_CONTAINER > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#ABILITIES_CONTAINER > div:nth-child(2) {
+  width: 20%;
+  height: 1px;
+  margin: 0px 10%;
+  background-color: rgb(208, 168, 92);
+}
+#ABILITIES_CONTAINER > div:first-child > h1 {
+  display: inline-block;
+
+  height: 9%;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0px;
+
+  padding: 0px;
+  margin: 0px;
+
+  color: white;
+
+  font-size: 60px;
+  font-style: italic;
+}
+.passive, .abilities {
+  color: white;
+
+  font-size: medium;
+}
+
+.bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  margin-top: 24px;
+
+  gap: 34px;
+}
+.bar > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 70px;
+  height: 70px;
+
+  cursor: pointer;
+}
+.bar > div:first-child > img {
+  width: 50%;
+  height: 50%;
+}
+.bar > div > img {
+  width: 100%;
+  height: 100%;
+}
+.bar > div > p {
+  margin: 12px 0px 0px;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: row;
+
+  margin-top: 60px;
+}
+.ability-video {
+  width: 800px;
+  height: 600px;
+}
+.stats {
+  width: 400px;
+}
+.stats > p {
+  width: 400px;
+  height: 45px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0px;
+
+  padding: 0px;
+  margin: 0px;
+
+  color: rgb(208, 168, 92);
+
+  font-size: 25px;
+  font-style: italic;
+}
+
+.abi-des {
+  width: 1200px;
+  height: 200px;
+}
+.ability-description {
+  height: 45px;
+}
+.ability-description {
+  text-transform: uppercase;
+
+  letter-spacing: 0px;
+
+  padding: 0px;
+  margin: 0px;
+
+  color: rgb(208, 168, 92);
+
+  font-size: 15px;
+}
 
 
 

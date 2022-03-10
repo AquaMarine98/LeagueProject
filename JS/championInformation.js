@@ -43,6 +43,8 @@ function getChampionInfo(champ) {
             console.log(data);
             setChampInfo(data);
             getTotalSkins(data);
+            getAbilitiesIcons(data);
+            getAbilities(data);
         });
 }
 

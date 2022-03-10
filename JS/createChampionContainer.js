@@ -17,7 +17,7 @@ function waitUntilChampNamesIsReady() {
         champ = championsName[0][i][1].id;
 
         a.href = `../HTML/campeon.html?id=${champ}`;
-        championImg.src = (`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ}_0.jpg`);
+        championImg.src = (`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champ}_0.jpg`);
         championName.textContent = championsName[0][i][0];
     }
 }

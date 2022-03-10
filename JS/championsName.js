@@ -1,6 +1,6 @@
 var championsName = [];
 
-fetch('http://ddragon.leagueoflegends.com/cdn/12.4.1/data/en_US/champion.json')
+fetch('https://ddragon.leagueoflegends.com/cdn/12.4.1/data/en_US/champion.json')
     .then(result => result.json())
     .then(data => {
         saveChampNames(data);

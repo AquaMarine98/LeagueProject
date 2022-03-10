@@ -37,7 +37,7 @@ let champId;
 
 // Get champion information
 function getChampionInfo(champ) {
-    fetch(`http://ddragon.leagueoflegends.com/cdn/12.5.1/data/es_AR/champion/${champ}.json`)
+    fetch(`https://ddragon.leagueoflegends.com/cdn/12.5.1/data/es_AR/champion/${champ}.json`)
         .then(result => result.json())
         .then(data => {
             console.log(data);

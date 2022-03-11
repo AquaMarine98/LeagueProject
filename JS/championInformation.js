@@ -42,9 +42,19 @@ function getChampionInfo(champ) {
         .then(data => {
             console.log(data);
             setChampInfo(data);
+            //Champ skins
             getTotalSkins(data);
+            //Abilities icons
             getAbilitiesIcons(data);
+            //Passive
+            getChampPassive(data);
+            passiveAtributes();
+            // Abilities
             getAbilities(data);
+            abilitiesAtributes();
+            //Ability videos
+            getAbilityVideos();
+            abilityVideos(data);
         });
 }
 
@@ -69,6 +79,9 @@ window.onload = () => {
     let urlRegex = /(?:\?id\=)(\w+)(?:$|\&)/;
     let champRegex = urlRegex.exec(actualUrl);
     champId = champRegex[1];
+
+    // Add button to the abilities description containers
+    addOnClick();
 
     // Wait until the name container get his width
     setTimeout(() => {

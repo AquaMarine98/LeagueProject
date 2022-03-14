@@ -1,4 +1,5 @@
 let skinsContainer = document.getElementById('SKINS_CONTAINER');
+let contenedor = document.getElementById('CONTENEDOR');
 let skinImg = document.getElementById('SKIN_IMG');
 let skinsLength = 0;
 
@@ -16,7 +17,7 @@ function createSkinContainer(length, data = false) {
     for (let i = 0; i < length; i++) {
         let skinNumber;
         let skin = document.createElement('li');
-        skinsContainer.appendChild(skin);
+        contenedor.appendChild(skin);
 
         let skinImg = document.createElement('img');
         skinImg.classList.add(i);

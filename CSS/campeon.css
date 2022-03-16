@@ -621,9 +621,11 @@ img {
   width: 25%;
 
   background-color: rgba(0, 0, 0, 0.5);
+
+  border-radius: 8px 0px 0px 8px;
 }
 .skins > h1 {
-  height: 9%;
+  height: 9.9%;
 
   text-align: center;
   text-transform: uppercase;
@@ -640,9 +642,9 @@ img {
 }
 .skins > div {
   width: 80%;
-  height: 1px;
+  height: .1%;
 
-  margin: 0px 10%;
+  margin: .1px auto;
 
   background-color: rgb(208, 168, 92);
 }
@@ -686,6 +688,14 @@ img {
 
   cursor: default;
 }
+#SKINS_CONTAINER {
+  height: 89.9%;
+
+  margin: 0px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 #SKINS_CONTAINER::-webkit-scrollbar-track {
   margin: 0px;
 }
@@ -696,7 +706,7 @@ img {
   margin: var(--flex-gap) 0px 0px;
 }
 #CONTENEDOR > li:last-child {
-  margin: 0px 0px var(--flex-gap);
+  padding-bottom: var(--flex-gap);
 }
 #CONTENEDOR > li {
   display: flex;
@@ -708,7 +718,7 @@ img {
   width: 100%;
   height: auto;
 
-  padding: 0px 12px;
+  padding: 0px 12px 0px;
   margin: 0px;
 
   box-sizing: border-box;
@@ -1081,7 +1091,7 @@ img {
     width: 300px;
 
     overflow-y: hidden;
-    overflow-x: auto;
+    overflow-x: scroll;
 
     box-sizing: border-box;
   }
@@ -1099,6 +1109,8 @@ img {
   }
   #CONTENEDOR > li:last-child {
     margin: 0px;
+
+    padding: 0px;
   }
   #CONTENEDOR > li {
     padding: 0px;

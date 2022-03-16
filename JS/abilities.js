@@ -79,7 +79,6 @@ let abiVid = [];
 
 function getAbilityVideos() {
     abiVidContainer = document.getElementsByClassName('ability-video');
-    console.log(abiVidContainer);
     for (let i = 0; i < abiVidContainer.length; i++) {
         abiVid.push(abiVidContainer[i].getElementsByTagName('source'));
     }
@@ -89,7 +88,6 @@ function abilityVideos(elem) {
     let champNumber;
     
     function getNumberLength() {
-        console.log(elem.data[champId].key.length);
         if (elem.data[champId].key.length == 1) {
             champNumber = '000' + elem.data[champId].key;
         }

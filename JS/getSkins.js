@@ -66,3 +66,38 @@ function changeSkin(number, index) {
         }, 10);
     }
 }
+
+let pixels = 100;
+let maxPixels = 0;
+let pixelsQuantity = 120;
+
+let skinIndex = 0;
+let afterIndex;
+
+function changeSkinInTime() {
+    let totalSkins = contenedor.getElementsByTagName('li');
+
+    setTimeout(() => {
+        console.log(totalSkins.length);
+    }, 500)
+
+    setInterval(() => {
+        pixels -= pixelsQuantity;
+        
+        maxPixels += pixelsQuantity;
+
+        if (maxPixels >= (totalSkins.length * pixelsQuantity)) {
+            pixels = 100;
+            maxPixels = 0;
+        }
+
+        contenedor.style.transform = `translateX(${pixels}px)`;
+
+        console.log(maxPixels, (totalSkins.length * pixelsQuantity));
+    }, 2500)
+}
+
+/* // Set the skin changer timer for lower resolutions
+if(window.screen.availWidth <= 425) {
+    changeSkinInTime();
+} */

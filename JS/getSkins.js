@@ -5,6 +5,8 @@ let skinsLength = 0;
 
 let allSkins;
 
+let skinNumberIndex = [];
+
 function getTotalSkins(champ) {
     skinsLength = champ.data[champId].skins.length;
 
@@ -27,7 +29,7 @@ function createSkinContainer(length, data = false) {
         skin.appendChild(skinName);
 
 
-
+        skinNumberIndex.push(data.data[champId].skins[i].num);
         skinNumber = data.data[champId].skins[i].num;
         skin.setAttribute("onclick", `changeSkin(${skinNumber}, ${i})`);
 
@@ -74,16 +76,26 @@ let pixelsQuantity = 120;
 let skinIndex = 0;
 let afterIndex;
 
+let skinsArray = [];
+function getAllSkinInArray(number) {
+    for (let i = 0; i < number; i++) {
+        skinsArray.push(`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champId}_${skinNumberIndex[i]}.jpg`);
+    }
+}
+
 function changeSkinInTime() {
     let totalSkins = contenedor.getElementsByTagName('li');
+    let i = 0;
 
     setTimeout(() => {
-        console.log(totalSkins.length);
+        getAllSkinInArray(totalSkins.length);
+        console.log(skinNumberIndex);
+        console.log(skinsArray);
     }, 500)
 
     setInterval(() => {
         pixels -= pixelsQuantity;
-        
+
         maxPixels += pixelsQuantity;
 
         if (maxPixels >= (totalSkins.length * pixelsQuantity)) {
@@ -93,11 +105,18 @@ function changeSkinInTime() {
 
         contenedor.style.transform = `translateX(${pixels}px)`;
 
-        console.log(maxPixels, (totalSkins.length * pixelsQuantity));
+        if (i >= totalSkins.length - 1) {
+            i = 0;
+        }
+        else { i++ }
+
+        skinImg.src = skinsArray[i];
+
+        console.log(i)
     }, 2500)
 }
 
-/* // Set the skin changer timer for lower resolutions
+// Set the skin changer timer for lower resolutions
 if(window.screen.availWidth <= 425) {
     changeSkinInTime();
-} */
+}

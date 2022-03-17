@@ -854,9 +854,10 @@ img {
 
   border: 1px solid white;
 
-  margin-right: 5rem;
-
   object-fit: cover;
+
+  margin: 0px 0px 20px;
+  margin-right: 5rem;
 }
 .stats {
   width: 400px;
@@ -926,15 +927,69 @@ img {
 }
 
 
+@media (max-width: 1440px) {
+  .video-container.active {
+    flex-direction: column;
+
+    align-items: center;
+  }
+  .ability-video {
+    margin-right: 0px;
+  }
+
+  .abi-des {
+    width: 722px;
+  }
+}
 
 @media (max-width: 1024px) {
   .img-container {
     padding: 30px 0px 75px;
   }
   .img-center, .skins-container{
-    padding: 0px 0.65rem;
+    padding: 0px;
+  }
+
+  .skin-img-container {
+    min-width: 724px;
+    height: 560px;
+  }
+
+  #SKIN_IMG {
+    border-radius: 0px;
+  }
+  .skins {
+    border-radius: 0px;
+  }
+  .skins > h1 {
+    font-size: 50px;
+  }
+
+  #SKINS_CONTAINER {
+    padding: 0px;
   }
 }
+
+@media (max-width: 768px) {
+  .skins > h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 40px;
+  }
+
+  #CONTENEDOR > li > img {
+    width: 50px;
+    height: 50px;
+
+    object-position: center;
+  }
+  #CONTENEDOR > li > h1 {
+    font-size: small;
+  }
+}
+
 @media (max-width: 425px) {
   .champion {
     top: -3.5rem;
@@ -1029,10 +1084,8 @@ img {
     width: 100%;
   }
   .ability-video {
-    width: auto;
+    width: 100%;
     height: auto;
-
-    margin: 0px 0px 20px;
   }
   .abi-des {
     width: auto;

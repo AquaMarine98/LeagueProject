@@ -71,6 +71,9 @@ $(window).resize(function () {
 
         makeCanvas();
     }, 50);
+
+    // Set the skin changer timer for lower resolutions
+    changeSkinInTime();
 });
 
 window.onload = () => {
@@ -82,6 +85,9 @@ window.onload = () => {
 
     // Add button to the abilities description containers
     addOnClick();
+
+    // Set the skin changer timer for lower resolutions
+    changeSkinInTime();
 
     // Wait until the name container get his width
     setTimeout(() => {
@@ -168,7 +174,7 @@ function changeDificulty(difficulty) {
 }
 
 function makeCanvas() {
-    
+
     let vertices = [];
     vertices.push({ x: ((canvasWidth / 2) + (unshownName.clientWidth / 2)), y: 0 });
     vertices.push({ x: canvasWidth, y: 0 });

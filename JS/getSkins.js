@@ -73,9 +73,6 @@ let pixels = 100;
 let maxPixels = 0;
 let pixelsQuantity = 120;
 
-let skinIndex = 0;
-let afterIndex;
-
 let skinsArray = [];
 function getAllSkinInArray(number) {
     for (let i = 0; i < number; i++) {
@@ -83,40 +80,51 @@ function getAllSkinInArray(number) {
     }
 }
 
+let totalSkins;
+let i;
+let skinTime;
+
+function myFunction() {
+    pixels -= pixelsQuantity;
+
+    maxPixels += pixelsQuantity;
+
+    if (maxPixels >= (totalSkins.length * pixelsQuantity)) {
+        pixels = 100;
+        maxPixels = 0;
+    }
+
+    contenedor.style.transform = `translateX(${pixels}px)`;
+
+    if (i >= totalSkins.length - 1) {
+        i = 0;
+    }
+    else { i++ }
+
+    skinImg.src = skinsArray[i];
+
+    console.log(i);
+}
+
 function changeSkinInTime() {
-    let totalSkins = contenedor.getElementsByTagName('li');
-    let i = 0;
+    totalSkins = contenedor.getElementsByTagName('li');
+    i = 0;
 
     setTimeout(() => {
         getAllSkinInArray(totalSkins.length);
-        console.log(skinNumberIndex);
-        console.log(skinsArray);
-    }, 500)
+    }, 500);
 
-    setInterval(() => {
-        pixels -= pixelsQuantity;
-
-        maxPixels += pixelsQuantity;
-
-        if (maxPixels >= (totalSkins.length * pixelsQuantity)) {
-            pixels = 100;
-            maxPixels = 0;
-        }
-
-        contenedor.style.transform = `translateX(${pixels}px)`;
-
-        if (i >= totalSkins.length - 1) {
-            i = 0;
-        }
-        else { i++ }
-
+    if (window.screen.availWidth <= 425) {
+        contenedor.style.transform = `translateX(100px)`;
+        i = 0;
+        pixels = 100;
+        maxPixels = 0;
         skinImg.src = skinsArray[i];
-
-        console.log(i)
-    }, 2500)
-}
-
-// Set the skin changer timer for lower resolutions
-if(window.screen.availWidth <= 425) {
-    changeSkinInTime();
+        skinTime = setInterval(myFunction, 2500);
+        skinTime;
+    }
+    else if (window.screen.availWidth > 425) { 
+        clearInterval(skinTime);
+        contenedor.style.transform = 'translateX(0px)';
+    }
 }
